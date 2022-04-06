@@ -1,0 +1,40 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media screen and (min-width: $big-desk) {
+    font-size: 75%;
+  }
+
+
+  @media screen and (max-width: $tab-land) {
+    font-size: 56.25%;
+  }
+
+  
+  @media screen and (max-width: $tab-port) {
+    font-size: 50%;
+  }
+}
+   
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

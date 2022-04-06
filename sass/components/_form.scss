@@ -1,0 +1,115 @@
+.form {
+  &__group {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+
+      @media screen and (max-width: $tab-port) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    @media screen and (max-width: $tab-port) {
+      .btn {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__input {
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+
+    @media screen and (max-width: $tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+    transition: all .3s;
+  }
+  
+  &__input:focus + &__label,
+  &__input:not(:placeholder-shown) + &__label {
+    top: -2rem;
+    left: 0;
+    font-size: 1rem;
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+
+    @media screen and (max-width: $tab-port) {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__radio-label {
+    display: flex;
+    align-items: center;
+    font-size: $default-font-size;
+    cursor: pointer;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+
+  &__radio-button {
+    position: relative;
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    margin-right: 1rem;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: '';
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+}
